@@ -1,0 +1,9 @@
+Appendix F and Figure 7 present a diagnostic case study of when seizure detection succeeds or fails under CNS versus direct visualization (DV), examining four outcome conditions for seizure-positive samples. The  four conditions are interpreted as follows (TP: True Positive; FN: False Negative):
+
+CNS: TP, DV: TP. When both representations succeed, the underlying seizure evidence is sufficiently salient that both visual encodings support correct detection. The two representations show broadly consistent channel-level saliency in the encoder's intermediate layers, reflecting a shared, representation-agnostic response to strong seizure patterns.
+
+CNS: TP, DV: FN. This is the condition where CNS provides a genuine advantage. By encoding signal amplitude as continuous chromatic intensity rather than sparse waveform strokes, CNS reorganizes locally distributed line-plot information into coherent channel-time regions, allowing the model to concentrate attention on seizure-relevant spatiotemporal structure that DV's inherent whitespace and fragmented strokes obscure.
+
+CNS: FN, DV: TP. This condition reveals a limitation of CNS. Certain seizure samples contain fine-grained waveform morphology — such as sharp transients or brief rhythmic evolutions — that remains visually salient in line-plot form but is compressed or smoothed during amplitude-to-color encoding in CNS, causing the model to fail to form stable discriminative attention on those samples.
+
+CNS: FN, DV: FN. This represents intrinsically difficult samples where both representations fail. The underlying seizure pattern is likely weak, transient, or highly diffuse, such that neither visual encoding provides sufficient evidence for the model to form concentrated, seizure-specific attention. These cases likely reflect label noise, very short seizure events, or segments with poor signal-to-noise ratio that warrant further investigation.
